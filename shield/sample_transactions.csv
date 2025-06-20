@@ -1,0 +1,6 @@
+accountId,amount,description,category,location,ipAddress,timestamp
+ACC001,1500.50,Grocery purchase,purchase,New York,192.168.1.1,2024-01-15 10:30:00
+ACC002,2500.75,Online transfer,transfer,Los Angeles,192.168.1.2,2024-01-15 11:45:00
+ACC003,500.25,ATM withdrawal,withdrawal,Chicago,192.168.1.3,2024-01-15 12:15:00
+ACC004,15000.00,Large purchase,purchase,Miami,192.168.1.4,2024-01-15 13:20:00
+ACC005,750.80,Gas station,purchase,Houston,192.168.1.5,2024-01-15 14:30:00 

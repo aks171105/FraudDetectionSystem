@@ -1,0 +1,13 @@
+{
+  "name": "fraudshield-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for FraudShield - Financial Fraud Detection System",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8080 -c-1",
+    "dev": "http-server -p 8080 -c-1 -o"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+} 

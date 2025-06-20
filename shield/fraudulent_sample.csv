@@ -1,0 +1,16 @@
+accountId,amount,description,category,location,ipAddress,timestamp,recipientAccountId,deviceId,browserId
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.1,19-06-2024 03:30,ACC010,devA,browserA
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.2,19-06-2024 10:00,ACC011,devB,browserB
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.3,19-06-2024 11:00,ACC012,devC,browserC
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.4,19-06-2024 12:00,ACC013,devD,browserD
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.5,19-06-2024 02:30,ACC014,devE,browserE
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.6,19-06-2024 13:00,ACC015,devF,browserF
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.1,19-06-2024 14:00,ACC016,devA,browserA
+ACC2020,123456,cryptocurrency,transfer,japan,192.168.1.2,19-06-2024 15:00,ACC017,devB,browserB
+ACC2020,123456,cryptocurrency,transfer,japan,45.79.11.2,19-06-2024 04:00,ACC001,devG,browserG
+ACC2020,123456,cryptocurrency,transfer,japan,13.234.122.4,19-06-2024 16:00,ACC018,devH,browserH
+ACC2020,123456,cryptocurrency,transfer,japan,10.0.0.1,19-06-2024 17:00,ACC019,devI,browserI
+ACC012,9000,Emergency BTC transfer,transfer,Delhi,185.60.216.35,19-06-2024 05:00,ACC020,devJ,browserJ
+ACC013,100,Normal lunch,purchase,Florida,192.168.1.2,19-06-2024 18:00,ACC021,devK,browserK
+ACC014,200,Normal dinner,purchase,Delhi,8.8.8.8,19-06-2024 19:00,ACC022,devL,browserL
+ACC015,500,Normal shopping,utilities,Florida,203.0.113.5,19-06-2024 20:00,ACC023,devM,browserM 

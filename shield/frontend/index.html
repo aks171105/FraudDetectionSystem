@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield - Financial Fraud Detection</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>FraudShield</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active" data-section="dashboard">Dashboard</a></li>
+            <li><a href="#" data-section="transactions">Transactions</a></li>
+            <li><a href="#" data-section="fraud-alerts">Fraud Alerts</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="dashboard-grid">
+                <!-- Summary Stats -->
+                <div class="card stats-card">
+                    <h2>Summary Statistics</h2>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <h3>Total Transactions</h3>
+                            <p id="total-transactions">0</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Fraudulent Transactions</h3>
+                            <p id="fraudulent-transactions">0</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Fraud Percentage</h3>
+                            <p id="fraud-percentage">0%</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>Total Amount</h3>
+                            <p id="total-amount">$0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fraud Types Chart -->
+                <div class="card chart-card">
+                    <h2>Fraud Detection Types</h2>
+                    <div id="fraud-types-chart" class="chart"></div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="card activity-card">
+                    <h2>Recent Activity</h2>
+                    <div id="recent-activity" class="activity-list"></div>
+                </div>
+
+                <!-- Risk Distribution -->
+                <div class="card risk-card">
+                    <h2>Risk Distribution</h2>
+                    <div class="risk-distribution">
+                        <div class="risk-category">
+                            <h4>High Risk</h4>
+                            <div class="risk-bar">
+                                <div id="high-risk-bar" class="risk-fill high"></div>
+                            </div>
+                            <p id="high-risk-count">0 transactions</p>
+                        </div>
+                        <div class="risk-category">
+                            <h4>Medium Risk</h4>
+                            <div class="risk-bar">
+                                <div id="medium-risk-bar" class="risk-fill medium"></div>
+                            </div>
+                            <p id="medium-risk-count">0 transactions</p>
+                        </div>
+                        <div class="risk-category">
+                            <h4>Low Risk</h4>
+                            <div class="risk-bar">
+                                <div id="low-risk-bar" class="risk-fill low"></div>
+                            </div>
+                            <p id="low-risk-count">0 transactions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Analysis -->
+                <div class="card location-card">
+                    <h2>Top Transaction Locations</h2>
+                    <div id="location-stats" class="location-stats"></div>
+                </div>
+
+                <!-- Time Analysis -->
+                <div class="card time-card">
+                    <h2>Transaction Timeline</h2>
+                    <div id="time-chart" class="chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transactions Section -->
+        <section id="transactions" class="section">
+            <div class="card">
+                <h2>Transaction Management</h2>
+                
+                <!-- File Upload Section -->
+                <div class="upload-section">
+                    <h3>Bulk Upload Transactions</h3>
+                    <div class="upload-container">
+                        <div class="file-upload-area">
+                            <input type="file" id="transaction-file" accept=".csv,.txt" style="display: none;">
+                            <div class="upload-drop-zone" id="upload-drop-zone">
+                                <div class="upload-icon">📁</div>
+                                <p>Drag & drop CSV or TXT file here</p>
+                                <p>or</p>
+                                <button type="button" class="btn secondary" id="browse-btn">Browse Files</button>
+                            </div>
+                            <div class="upload-info">
+                                <p><strong>Supported formats:</strong> CSV, TXT (tab or space separated)</p>
+                                <p><strong>Required fields:</strong> accountId, amount</p>
+                                <p><strong>Optional fields:</strong> description, category, location, ipAddress, timestamp</p>
+                                <button type="button" class="btn link" id="show-sample-btn">View Sample Format</button>
+                            </div>
+                        </div>
+                        <div class="upload-actions">
+                            <button type="button" class="btn primary" id="upload-btn" disabled>Upload & Process</button>
+                            <div class="upload-progress" id="upload-progress" style="display: none;">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progress-fill"></div>
+                                </div>
+                                <p id="progress-text">Processing...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transaction-controls">
+                    <button id="add-transaction-btn" class="btn primary">Add Single Transaction</button>
+                    <input type="text" id="transaction-search" placeholder="Search transactions...">
+                </div>
+                <div class="transactions-table-container">
+                    <table id="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Account ID</th>
+                                <th>Amount</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fraud Alerts Section -->
+        <section id="fraud-alerts" class="section">
+            <div class="card">
+                <h2>Fraud Alerts</h2>
+                <div class="alerts-container" id="alerts-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add Transaction Modal -->
+    <div id="add-transaction-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Transaction</h2>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label for="accountId">Account ID</label>
+                    <input type="text" id="accountId" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" required>
+                        <option value="purchase">Purchase</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="withdrawal">Withdrawal</option>
+                        <option value="deposit">Deposit</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="ipAddress">IP Address</label>
+                    <input type="text" id="ipAddress" placeholder="192.168.1.1">
+                </div>
+                <div class="form-group">
+                    <label for="deviceId">Device ID (Optional)</label>
+                    <input type="text" id="deviceId" placeholder="device_123">
+                </div>
+                <div class="form-group">
+                    <label for="browserId">Browser ID (Optional)</label>
+                    <input type="text" id="browserId" placeholder="browser_456">
+                </div>
+                <div class="form-group">
+                    <label for="recipientAccountId">Recipient Account ID (Optional)</label>
+                    <input type="text" id="recipientAccountId" placeholder="ACC002">
+                </div>
+                <button type="submit" class="btn primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Sample Format Modal -->
+    <div id="sample-format-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sample File Format</h2>
+            <div class="format-tabs">
+                <button class="tab-btn active" data-format="csv">CSV Format</button>
+                <button class="tab-btn" data-format="txt">TXT Format</button>
+            </div>
+            <div class="format-content">
+                <div id="csv-sample" class="format-sample active">
+                    <h3>CSV Format (Comma Separated)</h3>
+                    <pre><code>accountId,amount,description,category,location,ipAddress,timestamp
+ACC001,1500.50,Grocery purchase,purchase,New York,192.168.1.1,2024-01-15 10:30:00
+ACC002,2500.75,Online transfer,transfer,Los Angeles,192.168.1.2,2024-01-15 11:45:00
+ACC003,500.25,ATM withdrawal,withdrawal,Chicago,192.168.1.3,2024-01-15 12:15:00</code></pre>
+                </div>
+                <div id="txt-sample" class="format-sample">
+                    <h3>TXT Format (Tab Separated)</h3>
+                    <pre><code>accountId	amount	description	category	location	ipAddress	timestamp
+ACC001	1500.50	Grocery purchase	purchase	New York	192.168.1.1	2024-01-15 10:30:00
+ACC002	2500.75	Online transfer	transfer	Los Angeles	192.168.1.2	2024-01-15 11:45:00
+ACC003	500.25	ATM withdrawal	withdrawal	Chicago	192.168.1.3	2024-01-15 12:15:00</code></pre>
+                </div>
+            </div>
+            <div class="format-notes">
+                <h4>Notes:</h4>
+                <ul>
+                    <li><strong>accountId</strong> and <strong>amount</strong> are required fields</li>
+                    <li>First row should contain headers</li>
+                    <li>For CSV files, use commas to separate values</li>
+                    <li>For TXT files, use tabs or spaces to separate values</li>
+                    <li>If timestamp is not provided, current time will be used</li>
+                    <li>If location is not provided, "Unknown" will be used</li>
+                    <li>If ipAddress is not provided, "127.0.0.1" will be used</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html> 

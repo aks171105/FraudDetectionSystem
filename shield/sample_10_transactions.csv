@@ -1,0 +1,11 @@
+accountId,amount,description,category,location,ipAddress,timestamp
+ACC001,20000,Foreign transfer,others,Delhi,10.0.0.1,2025-06-19 07:50:57.053790
+ACC002,70000,Gift to friend,entertainment,New York,203.0.113.5,2025-06-19 12:08:57.053790
+ACC003,10000,Foreign transfer,others,London,10.0.0.1,2025-06-19 06:22:57.053790
+ACC004,100,Betting site deposit,others,London,13.234.122.4,2025-06-19 07:51:57.053790
+ACC005,100,Betting site deposit,utilities,Delhi,10.0.0.1,2025-06-19 05:07:57.053790
+ACC006,100,Foreign transfer,others,Delhi,185.60.216.35,2025-06-19 12:02:57.053790
+ACC007,100,Online purchase,utilities,Florida,192.168.1.2,2025-06-19 12:04:57.053790
+ACC008,10000,Payment for services,others,Delhi,8.8.8.8,2025-06-19 05:47:57.053790
+ACC009,99999,Travel expense,entertainment,California,45.79.11.2,2025-06-19 07:22:57.053790
+ACC010,500,Travel expense,utilities,Florida,203.0.113.5,2025-06-19 07:15:57.053790
